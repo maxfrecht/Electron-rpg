@@ -1,3 +1,6 @@
 import "./styles/styles.scss";
+import { StartComponent } from "./components/start/start.component";
 
-console.log('test');
+let start = new StartComponent("start");
+start.render();
+// start.destroy();
