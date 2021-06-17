@@ -10,6 +10,7 @@ export class StartComponent extends Component {
     this.el.classList.add("start-component-box");
     this.el.appendChild(this.titleElement);
     this.titleElement.innerHTML = this.title;
+    this.render();
 
     this.el.addEventListener("click", () => {
       this.titleElement.style.animation = "none";
