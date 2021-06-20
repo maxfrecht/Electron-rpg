@@ -1,4 +1,4 @@
-abstract class RpgEntity {
+export abstract class RpgEntity {
   protected name: string;
   protected job: string;
   protected urlImg: string;
@@ -22,11 +22,11 @@ abstract class RpgEntity {
   protected critDamage: number;
   protected damageMin: number = 0;
   protected damageMax: number = 0;
-  // protected ability : Ability;
+  //TODO protected ability : Ability;
   // protected abilityRatio: number;
   // protected turn: number = 0;
 
-  constructor(
+  protected constructor(
     name: string,
     strength: number,
     agility: number,
