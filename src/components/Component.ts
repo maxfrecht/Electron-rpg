@@ -1,16 +1,32 @@
 export abstract class Component {
-  protected el: HTMLElement;
-  protected parentEl: HTMLElement;
+  private _el: HTMLElement;
+  private _parentEl: HTMLElement;
 
   constructor(el: HTMLElement, parentEl: HTMLElement) {
-    this.el = el;
-    this.parentEl = parentEl;
+    this._el = el;
+    this._parentEl = parentEl;
   }
   render() {
-    this.parentEl.appendChild(this.el);
+    this._parentEl.appendChild(this._el);
   }
 
   destroy() {
-    this.parentEl.removeChild(this.el);
+    this._parentEl.removeChild(this._el);
+  }
+
+  get el(): HTMLElement {
+    return this._el;
+  }
+
+  set el(value: HTMLElement) {
+    this._el = value;
+  }
+
+  get parentEl(): HTMLElement {
+    return this._parentEl;
+  }
+
+  set parentEl(value: HTMLElement) {
+    this._parentEl = value;
   }
 }

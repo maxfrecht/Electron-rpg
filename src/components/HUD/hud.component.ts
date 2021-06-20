@@ -1,19 +1,48 @@
 import { Component } from "../Component";
+import {CharacterDetailComponent} from "./characterDetail/CharacterDetail.component";
+import {CharacterStateComponent} from "./characterDetail/characterState.component";
+import {ActionBarComponent} from "./characterDetail/ActionBar.component";
 
-export class HUD extends Component {
-  protected charactersDetails: any[];
-  protected characterState: any;
-  protected actionBar: any;
+export class HUDComponent extends Component {
+
+  private charactersDetails: CharacterDetailComponent[] | undefined;
+  private characterState: CharacterStateComponent | undefined;
+  private actionBar: ActionBarComponent | undefined;
+  private charactersDetailsBox: HTMLDivElement;
 
   constructor(
-    el = document.createElement("div"),
-    characters: any,
-    characterDetail: any,
-    actionBar: any
   ) {
-    super(el, document.body);
-    this.charactersDetails = characters;
-    this.characterState = characterDetail;
-    this.actionBar = actionBar;
+    super(document.createElement("div"), document.body);
+    this.el.classList.add("HUD");
+    this.charactersDetailsBox = document.createElement("div");
+  }
+
+  getCharactersDetails(): CharacterDetailComponent[] | undefined {
+    return this.charactersDetails;
+  }
+
+  setCharactersDetails(value: CharacterDetailComponent[]) {
+    this.charactersDetails = value;
+    this.charactersDetailsBox.innerHTML = '';
+    this.charactersDetailsBox.appendChild(this.charactersDetails[0].el);
+    this.charactersDetailsBox.appendChild(this.charactersDetails[1].el);
+    this.charactersDetailsBox.appendChild(this.charactersDetails[2].el);
+    this.el.appendChild(this.charactersDetailsBox);
+  }
+
+  getCharacterState(): CharacterStateComponent | undefined {
+    return this.characterState;
+  }
+
+  setCharacterState(value: CharacterStateComponent) {
+    this.characterState = value;
+  }
+
+  getActionBar(): ActionBarComponent | undefined {
+    return this.actionBar;
+  }
+
+  setActionBar(value: ActionBarComponent) {
+    this.actionBar = value;
   }
 }

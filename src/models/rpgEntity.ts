@@ -2,6 +2,7 @@ export abstract class RpgEntity {
   protected name: string;
   protected job: string;
   protected urlImg: string;
+  private sprites: string[];
 
   protected strength: number = 0;
   protected agility: number = 0;
@@ -35,7 +36,8 @@ export abstract class RpgEntity {
     agilityLvl: number,
     intelLvl: number,
     job: string,
-    urlImg: string
+    urlImg: string,
+    sprites: string[]
   ) {
     this.level = 1;
     this.scoreCritStrike = 12;
@@ -51,6 +53,15 @@ export abstract class RpgEntity {
     this.agilityLvl = agilityLvl;
     this.job = job;
     this.urlImg = urlImg;
+    this.sprites = sprites;
+  }
+
+  public getSprites(): string[] {
+    return this.sprites;
+  }
+
+  public setSprites(sprites: string[]) {
+    this.sprites = sprites;
   }
 
   public setDamageAndCriticalStrike(carac: number) {

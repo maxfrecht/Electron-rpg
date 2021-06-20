@@ -18,7 +18,7 @@ const commonConfig = {
         new CopyWebpackPlugin({
             patterns: [
                 {
-                    from: "./src/img/*",
+                    from: "./src/assets/img/*",
                     to: "img/[name][ext]",
                 },
             ],
