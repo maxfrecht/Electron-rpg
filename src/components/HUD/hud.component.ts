@@ -9,12 +9,16 @@ export class HUDComponent extends Component {
   private characterState: CharacterStateComponent | undefined;
   private actionBar: ActionBarComponent | undefined;
   private charactersDetailsBox: HTMLDivElement;
+  // private characterStateBox: HTMLDivElement;
+  // private actionBarBox: HTMLDivElement;
 
   constructor(
   ) {
     super(document.createElement("div"), document.body);
     this.el.classList.add("HUD");
     this.charactersDetailsBox = document.createElement("div");
+    // this.characterStateBox = document.createElement("div");
+    // this.actionBarBox = document.createElement("div");
   }
 
   getCharactersDetails(): CharacterDetailComponent[] | undefined {
@@ -24,6 +28,7 @@ export class HUDComponent extends Component {
   setCharactersDetails(value: CharacterDetailComponent[]) {
     this.charactersDetails = value;
     this.charactersDetailsBox.innerHTML = '';
+    this.charactersDetailsBox.classList.add("charactersDetails");
     this.charactersDetailsBox.appendChild(this.charactersDetails[0].el);
     this.charactersDetailsBox.appendChild(this.charactersDetails[1].el);
     this.charactersDetailsBox.appendChild(this.charactersDetails[2].el);
@@ -36,6 +41,7 @@ export class HUDComponent extends Component {
 
   setCharacterState(value: CharacterStateComponent) {
     this.characterState = value;
+    this.el.appendChild(this.characterState.el);
   }
 
   getActionBar(): ActionBarComponent | undefined {
@@ -44,5 +50,6 @@ export class HUDComponent extends Component {
 
   setActionBar(value: ActionBarComponent) {
     this.actionBar = value;
+    this.el.appendChild(this.actionBar.el);
   }
 }

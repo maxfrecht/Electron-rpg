@@ -7,10 +7,10 @@ import {CharacterDetailComponent} from "./components/HUD/characterDetail/Charact
 import {ActionBarComponent} from "./components/HUD/characterDetail/ActionBar.component";
 import {CharacterStateComponent} from "./components/HUD/characterDetail/characterState.component";
 import {HUDComponent} from "./components/HUD/hud.component";
-
 new StartComponent("START");
 let HUD = new HUDComponent();
 let warrior = new Warrior('Jonnhy');
+warrior.setArtwork('https://www.pngkey.com/png/full/151-1514744_image-dark-knight-aw-render-png-aigis-wiki.png');
 let warriorDetail = new CharacterDetailComponent(warrior);
 let mage = new Mage('Stalin');
 let mageDetail = new CharacterDetailComponent(mage);
@@ -24,6 +24,6 @@ let charactersDetails = [
 let actionBar = new ActionBarComponent();
 let characterState = new CharacterStateComponent(warrior);
 HUD.setCharactersDetails(charactersDetails);
-HUD.setActionBar(actionBar);
 HUD.setCharacterState(characterState);
+HUD.setActionBar(actionBar);
 HUD.render();

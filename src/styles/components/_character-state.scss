@@ -1,0 +1,58 @@
+.character-state {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding:2rem;
+  z-index: 5;
+  overflow: hidden;
+  &:before {
+    content:'';
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    background-image: var(--bg-character);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    filter: grayscale(1);
+    opacity: .4;
+  }
+  &:after {
+    content: var(--hero-name);
+    position: absolute;
+    font-size: 4rem;
+    color: #f1f1f1;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%)
+  }
+  img {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .statsBox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    .stat {
+      background-color: rgba(0,0,0,0.3);
+      color: white;
+      padding: 2rem;
+    }
+  }
+
+  .damages {
+    display: flex;
+    align-items: center;
+    color: white;
+    border: .1rem solid rgba(#f1f1f1, .2);
+    padding: 1.5rem;
+    gap: 1rem;
+    border-radius: .3rem;
+  }
+}

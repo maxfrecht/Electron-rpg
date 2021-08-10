@@ -1,0 +1,10 @@
+.HUD{
+  position: absolute;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  min-width: 100vw;
+  z-index:5;
+  background: rgba(128, 128, 128, 0.45);
+  user-select: none;
+}

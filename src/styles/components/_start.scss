@@ -12,6 +12,7 @@
   background: black;
   transition: opacity 0.2s ease-in-out;
   overflow: hidden;
+  z-index: 1000;
   h1 {
     text-transform: uppercase;
     font-size: 10rem;

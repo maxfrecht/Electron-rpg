@@ -1,8 +1,16 @@
 export abstract class RpgEntity {
+  getArtwork(): string | null {
+    return this._artwork;
+  }
+
+  setArtwork(value: string | null) {
+    this._artwork = value;
+  }
   protected name: string;
   protected job: string;
   protected urlImg: string;
-  private sprites: string[];
+  protected sprites: string[];
+  private _artwork: string | null;
 
   protected strength: number = 0;
   protected agility: number = 0;
@@ -54,6 +62,7 @@ export abstract class RpgEntity {
     this.job = job;
     this.urlImg = urlImg;
     this.sprites = sprites;
+    this._artwork = null;
   }
 
   public getSprites(): string[] {

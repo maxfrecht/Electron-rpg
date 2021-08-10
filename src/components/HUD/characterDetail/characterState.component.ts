@@ -8,6 +8,7 @@ export class CharacterStateComponent extends Component {
         super(document.createElement("div"), document.querySelector("HUD")!);
         this.character = character;
         this.el.classList.add('character-state');
+        this.el.setAttribute('style', "--bg-character:url('" + character.getArtwork() + "'); --hero-name:'" + this.character.getName() + "'");
 
         let statsBox = this.createStatsBox();
         //RightSide
@@ -48,22 +49,25 @@ export class CharacterStateComponent extends Component {
         let damagesBoxElement = document.createElement('div');
         damagesBoxElement.classList.add('damages');
         let damageIcon = document.createElement('img');
-        damageIcon.src = './assets/img/sword-wound.svg';
+        damageIcon.src = './img/sword-wound.svg';
         let showDamages = document.createElement('p');
         showDamages.innerHTML = `min ${this.character.getDamageMin()} deg - max ${this.character.getDamageMax()} deg`
         damagesBoxElement.appendChild(damageIcon);
+        damagesBoxElement.appendChild(showDamages);
 
         return damagesBoxElement;
     }
 
-    createBarsBox(){
+    createBarsBox() {
         //Bars
         let barsBox = document.createElement('div');
         barsBox.classList.add('bars-box');
         let hpBar = document.createElement('div');
         let manaBar = document.createElement('div');
         hpBar.classList.add('bar');
+        hpBar.setAttribute('style', '--hpState:' + ((this.character.getHp() / this.character.getHpMax()) * 100) + '%')
         manaBar.classList.add('bar');
+        manaBar.setAttribute('style', '--manaState:' + ((this.character.getMana() / this.character.getManaMax()) * 100) + '%')
         barsBox.appendChild(hpBar);
         barsBox.appendChild(manaBar);
 
